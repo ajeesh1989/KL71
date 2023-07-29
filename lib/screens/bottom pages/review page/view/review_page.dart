@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Icon3Page extends StatelessWidget {
+class ReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

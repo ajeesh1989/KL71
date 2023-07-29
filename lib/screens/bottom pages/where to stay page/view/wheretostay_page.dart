@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Icon2Page extends StatelessWidget {
+class WhereToStayPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

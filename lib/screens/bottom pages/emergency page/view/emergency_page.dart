@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Icon1Page extends StatelessWidget {
+class EmergencyPage extends StatelessWidget {
+  const EmergencyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Near me'),
+        title: const Text('Emergency'),
       ),
-      body: Center(
+      body: const Center(
         child: Icon(Icons.ac_unit, size: 100),
       ),
     );

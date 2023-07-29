@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Icon4Page extends StatelessWidget {
+class NearMePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Emergency'),
+        title: Text('Near me'),
       ),
       body: Center(
         child: Icon(Icons.ac_unit, size: 100),

@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
-import 'icon1.dart';
-import 'icon2.dart';
-import 'icon3.dart';
-import 'icon4.dart';
+import 'package:kl71/const/const.dart';
+import 'package:kl71/screens/bottom%20pages/emergency%20page/view/emergency_page.dart';
+import 'package:kl71/screens/bottom%20pages/nearme%20page/view/nearme_page.dart';
+import 'package:kl71/screens/bottom%20pages/review%20page/view/review_page.dart';
+import 'package:kl71/screens/bottom%20pages/where%20to%20stay%20page/view/wheretostay_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,10 +37,10 @@ class _HomePageState extends State<HomePage> {
     "https://i.ytimg.com/vi/4shCHxDWT7U/maxresdefault.jpg",
   ];
   final List<Widget> _pages = <Widget>[
-    const HomePage(),
-    Icon1Page(),
-    Icon2Page(),
-    Icon3Page(),
+    NearMePage(),
+    WhereToStayPage(),
+    ReviewPage(),
+    EmergencyPage(),
   ];
 
   @override
@@ -57,54 +57,99 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.green.shade600,
+            Container(
+              color: Colors.green.shade600,
+              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'KL71',
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Explore Nilambur',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
-              child: const Center(
-                  child: Text(
-                'KL71',
-                style: TextStyle(fontSize: 40),
-              )),
+            ),
+            SizedBox(
+              height: 15,
             ),
             ListTile(
+              leading: Icon(Icons.info, color: Colors.green.shade600),
               title: const Text('Nilambur at a glance'),
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.location_on, color: Colors.green.shade600),
               title: const Text('Destinations'),
               onTap: () {},
             ),
             ListTile(
-              title: const Text('Travel desk'),
-              onTap: () {},
-            ),
-            ListTile(
+              leading: Icon(Icons.hotel, color: Colors.green.shade600),
               title: const Text('Stay'),
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.photo, color: Colors.green.shade600),
               title: const Text('Photos'),
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.video_library, color: Colors.green.shade600),
               title: const Text('Videos'),
               onTap: () {},
             ),
             ListTile(
+              leading:
+                  Icon(Icons.social_distance, color: Colors.green.shade600),
               title: const Text('Social channels'),
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.info, color: Colors.green.shade600),
               title: const Text('About'),
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.settings, color: Colors.green.shade600),
               title: const Text('Settings'),
               onTap: () {},
+            ),
+            const SizedBox(height: 50),
+            Center(
+              child: RichText(
+                text: const TextSpan(
+                  text: 'Developer ',
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'aj_labs',
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
@@ -158,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: index == _currentCarousel1Index
-                        ? Colors.green
+                        ? kGreenColor
                         : Colors.grey.shade400,
                   ),
                 ),
@@ -220,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: index == _currentCarousel2Index
-                            ? Colors.green
+                            ? kGreenColor
                             : Colors.grey.shade400,
                       ),
                     ),
@@ -236,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {},
                           child: const Text(
                             'View all',
-                            style: TextStyle(color: Colors.green),
+                            style: TextStyle(color: kGreenColor),
                           ),
                         ),
                       ],
@@ -289,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                   child: const Text(
                     'View all',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: kGreenColor),
                   ),
                 ),
               ],
@@ -339,7 +384,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                   child: const Text(
                     'View all',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: kGreenColor),
                   ),
                 ),
               ],
@@ -388,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                   child: const Text(
                     'View all',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: kGreenColor),
                   ),
                 ),
               ],
@@ -437,7 +482,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                   child: const Text(
                     'View all',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: kGreenColor),
                   ),
                 ),
               ],
@@ -486,7 +531,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {},
                   child: const Text(
                     'View all',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(color: kGreenColor),
                   ),
                 ),
               ],
@@ -495,7 +540,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.green.shade700,
+        color: BottomBarColor,
         height: 55,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -504,48 +549,48 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Icon1Page()),
+                  MaterialPageRoute(builder: (context) => NearMePage()),
                 );
               },
               child: const Text(
                 'Near me',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: kBlackColor),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Icon2Page()),
+                  MaterialPageRoute(builder: (context) => WhereToStayPage()),
                 );
               },
               child: const Text(
                 'Where to stay',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: kBlackColor),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Icon3Page()),
+                  MaterialPageRoute(builder: (context) => ReviewPage()),
                 );
               },
               child: const Text(
                 'Review',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: kBlackColor),
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Icon4Page()),
+                  MaterialPageRoute(builder: (context) => EmergencyPage()),
                 );
               },
               child: const Text(
                 'Emergency',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: kBlackColor),
               ),
             ),
           ],
