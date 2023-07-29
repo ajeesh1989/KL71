@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kl71/const/const.dart';
@@ -6,11 +5,13 @@ import 'package:kl71/screens/bottom%20pages/emergency%20page/view/emergency_page
 import 'package:kl71/screens/bottom%20pages/nearme%20page/view/nearme_page.dart';
 import 'package:kl71/screens/bottom%20pages/review%20page/view/review_page.dart';
 import 'package:kl71/screens/bottom%20pages/where%20to%20stay%20page/view/wheretostay_page.dart';
+import 'package:kl71/screens/home/view/widgets/drawer_head.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -19,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   int _currentCarousel2Index = 0;
   final CarouselController _carousel1Controller = CarouselController();
   final CarouselController _carousel2Controller = CarouselController();
-  int _selectedindex = 0;
 
   // List of image URLs for the carousel sliders
   final List<String> carousal1 = [
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     NearMePage(),
     WhereToStayPage(),
     ReviewPage(),
-    EmergencyPage(),
+    const EmergencyPage(),
   ];
 
   @override
@@ -55,105 +55,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(width: 10),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            Container(
-              color: Colors.green.shade600,
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'KL71',
-                    style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    'Explore Nilambur',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ListTile(
-              leading: Icon(Icons.info, color: Colors.green.shade600),
-              title: const Text('Nilambur at a glance'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on, color: Colors.green.shade600),
-              title: const Text('Destinations'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.hotel, color: Colors.green.shade600),
-              title: const Text('Stay'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.photo, color: Colors.green.shade600),
-              title: const Text('Photos'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.video_library, color: Colors.green.shade600),
-              title: const Text('Videos'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading:
-                  Icon(Icons.social_distance, color: Colors.green.shade600),
-              title: const Text('Social channels'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.info, color: Colors.green.shade600),
-              title: const Text('About'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.settings, color: Colors.green.shade600),
-              title: const Text('Settings'),
-              onTap: () {},
-            ),
-            const SizedBox(height: 50),
-            Center(
-              child: RichText(
-                text: const TextSpan(
-                  text: 'Developer ',
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'aj_labs',
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: const drawerHead(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -540,7 +442,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Container(
-        color: BottomBarColor,
+        color: bottomBarColor,
         height: 55,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -585,7 +487,8 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => EmergencyPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const EmergencyPage()),
                 );
               },
               child: const Text(
@@ -600,9 +503,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onItemTapped(int index) {
-    setState(() {
-      _selectedindex = index;
-    });
+    setState(() {});
 
     // Use Navigator to push the respective page when an icon is tapped
     Navigator.of(context)
