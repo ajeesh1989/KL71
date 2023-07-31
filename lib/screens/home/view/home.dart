@@ -5,6 +5,7 @@ import 'package:kl71/screens/bottom%20pages/emergency%20page/view/emergency_page
 import 'package:kl71/screens/bottom%20pages/nearme%20page/view/nearme_page.dart';
 import 'package:kl71/screens/bottom%20pages/review%20page/view/review_page.dart';
 import 'package:kl71/screens/bottom%20pages/where%20to%20stay%20page/view/wheretostay_page.dart';
+import 'package:kl71/screens/destination/view/destination_page.dart';
 import 'package:kl71/screens/home/view/widgets/drawer_head.dart';
 
 class HomePage extends StatefulWidget {
@@ -180,7 +181,14 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      DestinationDetailPage()),
+                            );
+                          },
                           child: const Text(
                             'View all',
                             style: TextStyle(color: kGreenColor),
@@ -505,7 +513,6 @@ class _HomePageState extends State<HomePage> {
   void onItemTapped(int index) {
     setState(() {});
 
-    // Use Navigator to push the respective page when an icon is tapped
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => _pages[index]));
   }
