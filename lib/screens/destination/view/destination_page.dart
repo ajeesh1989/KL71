@@ -16,8 +16,32 @@ class DestinationDetailPage extends StatefulWidget {
 
 class _DestinationDetailPageState extends State<DestinationDetailPage>
     with SingleTickerProviderStateMixin {
-  final List<String> tabs = ["About", "Nearby", "Stay", "Photos", "Videos"];
+  final List<String> tabs = [
+    "About",
+    "Things to do",
+    "Nearby",
+    "Stay",
+    "Photos",
+    "Videos"
+  ];
   late TabController _tabController;
+
+  final List<String> thingsToDo = [
+    "https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?cs=srgb&dl=pexels-eric-sanman-1365425.jpg&fm=jpg",
+    "https://www.deccanherald.com/sites/dh/files/article_images/2016/07/14/557810.jpg",
+    "https://static.toiimg.com/thumb/msid-91658217,width-748,height-499,resizemode=4,imgsize-108962/.jpg",
+    "https://loveincorporated.blob.core.windows.net/contentimages/gallery/338179ba-31c3-4e19-b34b-57d145f2ed2c-sunrise_spots_hawaii.jpg",
+    "https://assets.cntraveller.in/photos/630dc21d3c602c95d2bace10/master/w_1600%2Cc_limit/nagaland-offroad-9.jpg"
+  ];
+  // things to do dummy pics
+
+  final List<String> thingsToDoHeadings = [
+    "Trekking",
+    "Boating",
+    "Camping",
+    "View point",
+    "Off road",
+  ];
 
   final List<String> nearby = [
     "https://i.ytimg.com/vi/nHSqbTt5_cw/maxresdefault.jpg",
@@ -315,6 +339,28 @@ class _DestinationDetailPageState extends State<DestinationDetailPage>
                           ),
                         ),
                         // About page listview
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: Center(
+                            child: ListView.separated(
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  leading: Image.network(
+                                      fit: BoxFit.fill, thingsToDo[index]),
+                                  title: Text(thingsToDoHeadings[index]),
+                                );
+                              },
+                              itemCount: 5,
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return const Divider(
+                                  height: 40,
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                        // Things to do
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0),
                           child: Center(
